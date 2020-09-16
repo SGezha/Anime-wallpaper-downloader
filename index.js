@@ -77,7 +77,7 @@ async function downloadImage(url, name, type) {
         total: parseInt(totalLength)
     });
 
-    const writer = fs.createWriteStream(path.resolve(__dirname, 'images', `${name}${type}`));
+    const writer = fs.createWriteStream(`images/${name}${type}`);
 
     data.on('data', (chunk) => progressBar.tick(chunk.length));
     data.pipe(writer);
