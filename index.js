@@ -56,6 +56,9 @@ function run() {
                     console.log(await terminalImage.file(`images/${img.id}${type}`, {width: "100%"}));
                     last = `${img.id}${type}`;
                     if (runned) next(id + 1);
+                })
+                .catch(er => {
+                    next(id + 1)
                 });
             }
         });
